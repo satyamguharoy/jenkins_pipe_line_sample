@@ -28,6 +28,7 @@ pipeline {
     stage('Cleanup') {
       steps {
         echo 'Cleanup stage'
+        echo 'Cleanup complete'
       }
     }
   }

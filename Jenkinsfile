@@ -1,25 +1,34 @@
 pipeline {
-    agent none 
-    stages {
-        stage('Build') { 
-            steps {
-                echo 'Build stage' 
-            }
+  agent none
+  stages {
+    stage('Build') {
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'Build stage'
+          }
         }
-        stage('Test') {
-            steps {
-                echo 'Test stage' 
-            }
+        stage('Build Parallel') {
+          steps {
+            echo 'Building Parallel'
+          }
         }
-        stage('Deliver') {
-             steps {
-                echo 'Deliver stage' 
-            }
-        }
-        stage('Cleanup') {
-             steps {
-                echo 'Cleanup stage' 
-            }
-        }
+      }
     }
+    stage('Test') {
+      steps {
+        echo 'Test stage'
+      }
+    }
+    stage('Deliver') {
+      steps {
+        echo 'Deliver stage'
+      }
+    }
+    stage('Cleanup') {
+      steps {
+        echo 'Cleanup stage'
+      }
+    }
+  }
 }

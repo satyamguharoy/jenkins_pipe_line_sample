@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('Build') {
       parallel {
@@ -30,5 +30,8 @@ pipeline {
         echo 'Cleanup stage'
       }
     }
+  }
+  environment {
+    CI = 'True'
   }
 }

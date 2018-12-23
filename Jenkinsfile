@@ -16,5 +16,10 @@ pipeline {
                 echo 'Deliver stage' 
             }
         }
+        stage('Cleanup') {
+             steps {
+                echo 'Cleanup stage' 
+            }
+        }
     }
 }
